@@ -1,0 +1,12 @@
+20210522 메모
+
+몽고디비 사용
+
+MongoDB (DateBass)
+ㄴ아래 DateBass가 여러개
+ㄴ아래 Cllection가 여러개 (Cllection=arry(배열))
+ㄴ아래 Document가 여러 개 (Document=Object)
+
+
+FrontEnd(사용자가 브라우저에서 사용) -->HTTP-->BackEnd(사용자에게 보이지 않는 서버)
+ㄴ전달 전달 전달 (요청/응답)

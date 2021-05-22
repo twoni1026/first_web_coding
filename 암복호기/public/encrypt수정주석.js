@@ -9,9 +9,10 @@ window.onload = function() { //브라우저의 값을 모두 읽었을 때 실�
 	dorm = document.getElementById("p_1"); //getElementById로 빈 <p>태그 "p_1"을 불러오고 변수 dorm에 불러온 값을 넣어준다.
 	sorm = document.getElementById("p_2"); //getElementById로 빈 <p>태그 "p_2"을 불러오고 변수 sorm에 불러온 값을 넣어준다.
 	document.getElementById("button").addEventListener("click", mandooo); //ID가 button(버튼)인 버튼(form)을 가져온 후 addEventListener로 브라우저에서 버튼을 클릭하는 이벤트가 실행되었을 때 mandooo 함수가 실행되게 지정한다.
-	if(!localStorage.getItem('gorm2')){ //if문(만약에 ㅇㅇ한다면)으로 만들어져 있는 로컬스토리지가 있는지 확인하기 위해 'gorm2' 라는 로컬 스토리지에서 아이템을 뺄 수 있는지 시험한다. 뺄 수 있다면 빼고,'뺄 수 없다면'을 가정해 상황을 만들어 놓는다.---getItem은 로컬스토리지에서 값을 빼 주는 것
-		localStorage.setItem('gorm2',JSON.stringify([])); //뺄 수 없다면 실행되는 코드. 'gorm2' 라는 로컬스토리지를 만들고, 문자열을 배열로 바꿔주는 제이슨.스트링기파이를 사용해 빈 문자열을 빈 배열로 만들어 새로 만든 로컬스토리지 'gorm2'에 넣는다.--setItem은 로컬스토리지에 값을 넣어 주는 것 
-	}
+	historyList();
+	//if(!localStorage.getItem('gorm2')){ //if문(만약에 ㅇㅇ한다면)으로 만들어져 있는 로컬스토리지가 있는지 확인하기 위해 'gorm2' 라는 로컬 스토리지에서 아이템을 뺄 수 있는지 시험한다. 뺄 수 있다면 빼고,'뺄 수 없다면'을 가정해 상황을 만들어 놓는다.---getItem은 로컬스토리지에서 값을 빼 주는 것
+		//localStorage.setItem('gorm2',JSON.stringify([])); //뺄 수 없다면 실행되는 코드. 'gorm2' 라는 로컬스토리지를 만들고, 문자열을 배열로 바꿔주는 제이슨.스트링기파이를 사용해 빈 문자열을 빈 배열로 만들어 새로 만든 로컬스토리지 'gorm2'에 넣는다.--setItem은 로컬스토리지에 값을 넣어 주는 것 
+	//}
 }
 
 function mandooo(event){ //버튼이 클릭되었을 때 mandooo라는 함수가 실행된다.(이벤트가 실행된다)
@@ -31,7 +32,6 @@ function history_pyogorm(str) { //히스토리_표곰이라는 함수를 만들�
 	let dt = new Date;
 	
 	word_history.push({'text':str, 'date':dt}); //word_history에 text(문자열 str)와 date가 같이 들어있는 객체를 밀어넣어(push)준다.
-//({'text':str,'date':'	' + (dt.getMonth()+1) + '/' + dt.getDate() + ' ' + dt.getHours() + ':' + dt.getMinutes() })
 	if (word_history.length > 20) { //if문으로 word_history에 넣은 값이 20보다 크거나 같은 길이가(length)된다면,
 		word_history.shift(); //word_history에 있는 값을 밀어 없애준다.--> 최종적으로 20개만 남고 20개가 넘는 값이 들어오게 되면 가장 오래된 값부터 지워진다.
 	}
@@ -48,7 +48,8 @@ function historyList() {
 	for (var i = 0; i < word_history.length; i++) {
 		let dt = new Date (word_history[i].date);
 		let li = document.createElement("li") //크리에이트 엘레먼트에서 li를 만든다 ----- li는 비어있음
-		li.innerHTML = '<span>' + word_history[i].text + '</span> <span>' + (dt.getMonth()+1) + '/' + dt.getDate() + ' ' + dt.getHours() + ':' + dt.getMinutes() + '</span>';
+		li.innerHTML = `<span class="history_item"> <span class="history_text">  ${word_history[i].text}  </span> <span class="history_date">  ${dt.getMonth()+1}/${dt.getDate()}  ${dt.getHours()}:${dt.getMinutes()} </span> </span>`;
+		//li.innerHTML = '<span class="history_item"> <span class="history_text">' + word_history[i].text + '</span> <span class="history_date">' + (dt.getMonth()+1) + '/' + dt.getDate() + ' ' + dt.getHours() + ':' + dt.getMinutes() + '</span> </span>';
 		history_list.appendChild(li) 
 	}
 }
@@ -87,5 +88,4 @@ function httpGet(url, handler) { //핸들러=처리한다 / httpGet 함수를 ur
     httpRequest.send(); //최종적으로 위에서 설정했던 요청을 보낸다.
 }
 
-//20210424 숙제. 문자열뿐만아니라 그 문자열을 입력한 날짜와 시간까지 표시한다.
 // ㅣ문장ㅣ----------ㅣ날짜ㅣ 를 브라우저에 표기할 수 있게)    날짜 형식-----mm/dd hh:mm (월/일 시간:분)

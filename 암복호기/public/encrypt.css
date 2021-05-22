@@ -5,15 +5,28 @@
 		
 #history_1 {
 	flex: 2;
-	border: 20px solid darkblue;
-	overflow: scroll;
+	border: 20px solid lavender;
 }
 		
 #history_2 {
 	flex: 3;
-	border: 20px solid skyblue;
-	overflow: scroll;
+	border: 20px solid #a4c4f4;
 }
+
 img {
 	display: inline;
+}
+
+.history_item {
+	display: flex;
+}
+
+.history_text {
+	flex: auto;
+	border: 1px solid lavender;
+}
+
+.history_date {
+	flex: initial;
+	border: 1px solid skyblue;
 }
