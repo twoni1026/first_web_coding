@@ -1,0 +1,26 @@
+20200313
+
+HTTP+HTML= www
+
+[HTTP]
+Hyper Text Transfer Protocol(하이퍼텍스트 전송 프로토콜)
+클라이언트(컴퓨터)와 서버 간의 요청, 응답을 다룸
+URL을 사용해 자료를 확인할 수 있음.
+
+[URL]
+http://도메인네임(컴퓨터이름)/경로
+http://로 시작하는 인터넷 주소. 
+
+[WWW]
+World Wide Web(월드 와이드 웹)
+(서버).(회사)/경로
+예를 들자면 www.gogle.com/경로
+
+[AJAX]
+Asynchronous JavaScript And XML (자바스트립트와 XML이 비동기적으로 소통함)
+페이지 전체를 새로고침하지 않고 일부만 바꿀 수 있게 해준다.
+(서버로부터 데이터를 받아)
+
+오늘 한 것
+HTTP뭔지 알기
+코드 받아적어서 서버 통신해봄
